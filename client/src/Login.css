@@ -1,0 +1,119 @@
+.login_container
+{
+    display: grid;
+    flex-direction: column;
+    background-color: white;
+    /* width: 50%; */
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid grey;
+    height: 320px;
+    margin-top: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.picture
+{
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.sign_in
+{
+    margin-left: 28px;
+    margin-top: 19px;   
+    font-size: 1.7rem;
+}
+
+.form{
+    margin-left: 28px;
+    margin-top: 19px;
+    margin-bottom: 50px;   
+}
+
+form > h4 
+{
+    margin-top: 5px;
+    margin-bottom: 7px;
+    font-weight:700;
+    font-size: 0.9rem;
+}
+form > input 
+{
+    margin-bottom: 9px;
+    height: 21px;
+    width: 87%;
+}
+form>p
+{
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-weight: 900;
+    font-size: 0.7rem;
+}
+.signinbtn
+{
+    display: grid;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 19px;
+    height: 30px;
+    align-self: center;
+    text-align: center;
+    border: 1px solid grey;
+    font-size: 1.1rem;
+    background-color:#FEBD69 ;
+    width: 80%;
+    border-radius: 5%;
+}
+button>h4{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.signup
+{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 380px;
+    /* background-color:white ; */
+    display: grid;
+    /* border: 1px solid grey; */
+    height: 100px;
+    font-family: 'Montserrat', sans-serif;
+}
+.signup > h1{
+    font-size: 1.0rem;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+}
+.signup>form
+{
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.signup>form>button{
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+    width: 390px;
+    background-color:white ;
+    border: 1px solid black;
+    border-radius: 6%;
+}
+.button:hover {
+    background-color:#e7980f;
+    transition: 0.3s;
+}
+.button1:hover {
+    background-color:#eaeae6;
+    transition: 0.3s;
+}
+

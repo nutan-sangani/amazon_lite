@@ -1,0 +1,47 @@
+.bg
+{
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    display: grid;
+    position: relative;
+    top:67px;
+    object-fit: contain;
+    mask-image: linear-gradient(to bottom, rgb(0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+
+.product_content
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 9px;
+    grid-column-gap: 10px;
+    justify-content: stretch;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media only screen and (max-width:939px) {
+    .product_content
+    {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media only screen and (max-width:695px) {
+    .product_content
+    {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width:620px) {
+    .product_content
+    {
+        grid-template-columns: auto;
+    }
+}
+
+
+

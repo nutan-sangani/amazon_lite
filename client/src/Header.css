@@ -1,0 +1,94 @@
+.header
+{
+    background-color:#131A22;
+    height: 68px;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    z-index:100;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.picture{
+    height: 40px;
+    display: flex;
+    margin-left: 8px;
+    margin-top: 4px;
+    object-fit: contain;
+}
+
+.lineOne
+{
+    color: white;
+    margin-bottom:0 ;
+    margin: 0 17px;
+    padding-bottom: 0;
+    font-size: 1rem;
+    text-align: left;
+    padding-left: 9px;
+
+}
+
+.lineTwo
+{
+    color: white;
+    display: flex;
+    margin-top: 0;
+    margin: 0 17px;
+    padding-top:0 ;
+    font-size:1.2rem;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 9px;
+}
+
+.address
+{
+   display: flex;
+   flex-direction: column;
+   padding-right:7px ;
+}
+.optionOne
+{
+    display: flex;
+   flex-direction: column;
+   padding-right:7px ;
+}
+.optionTwo
+{
+    display: flex;
+   flex-direction: column;
+   padding-right:7px ;
+}
+.search
+{
+    display: flex;
+    flex:1;
+}
+.search_logo
+{
+    background-color: #FEBD69;
+}
+.search_box{
+    display: flex;
+    flex: 2;
+    height: 34.5px;
+}
+.count{
+    /* text-align: center; */
+    color: white;
+    display: flex;
+    margin-top: 0;
+    margin: 0 17px;
+    padding-top:0 ;
+    font-size:1.2rem;
+    font-weight: 600;
+    padding-left: 16px;
+}
+.sticky
+{
+    height: 100%;
+    top:0;
+}
