@@ -33,7 +33,11 @@ function Header() {
                   type:'ADD_USER',
                   pay:json.data
                 });
-        })
+        });
+        dispatch(
+            {
+              type:'GET_CART'
+            } );
     },[]);
   return (
     <div className='header'>

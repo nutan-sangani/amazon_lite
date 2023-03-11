@@ -15,7 +15,7 @@ function Cart_item(props) {
         </strong>
         <strong className='cart_price'><small>₹</small> {props.price}</strong>
         <button className='cart_btn' onClick={()=>{
-        props.remove_item(props.id,props.title); //id ke badle index
+        props.remove_item(props.id,props.title,props.index); //id ke badle index
         return;
         }
         }>Remove from Cart</button>

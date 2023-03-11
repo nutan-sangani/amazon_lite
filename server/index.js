@@ -4,7 +4,7 @@ const app=express();
 const mongoose=require('mongoose');
 const { Schema } = require('mongoose');
 const { model } = require('mongoose');
-const cors=require('cors');
+// const cors=require('cors');
 
 //Import the main Passport and Express-Session library
 const passport = require('passport');
@@ -17,7 +17,7 @@ app.use(session({
   saveUninitialized: true ,
 }));
 
-app.use(cors());
+// app.use(cors());
 
 app.use(passport.initialize()) ;
 // init passport on every route call.
@@ -63,7 +63,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 app.post('/login', passport.authenticate('local'), function(req, res) {
   if(req.isAuthenticated())
-{
+  {
     res.send('hello');
   }
   else{ res.send('who are you boi!!!!')};
@@ -78,7 +78,7 @@ app.post('/login', passport.authenticate('local'), function(req, res) {
   
 });
 
-app.post('/add_to_basket',function(req,res){
+app.post('/add_to_basket',function(req,res){ //isme error tha ki add krte waqt hum _id nhi dete, jiske wajah se deletion nhi ho rha tha.
   //console.log(req.body.title);
   // const nitem=new Basket({name:req.body.title,ratings:req.body.rating,price:req.body.price,
   //   image:req.body.img});
@@ -88,20 +88,20 @@ app.post('/add_to_basket',function(req,res){
   
   //now we will check if the user already has a basket, if yes toh push the new item, or else create new user_basket
   console.log(req.body.user);
-  user_basket.findOne({email:req.body.user},function(err,found_item)
+  user_basket.findOne({email:req.body.user},async function(err,found_item)
   {
     if(found_item!=null)
     {
-      found_item.item.push({title:req.body.item.title,rating:req.body.item.rating,price:req.body.item.price,
+      await found_item.item.push({title:req.body.item.title,rating:req.body.item.rating,price:req.body.item.price,
         img:req.body.item.img});
       console.log(found_item);
-      found_item.save();
-      const id=found_item.item.filter(item1=>
-        {
-          return item1.title==req.body.item.title;
-        });
-        console.log(id[0].id);
-      res.send(id);
+      await found_item.save();
+      // const id=found_item.item.filter(item1=>
+      //   {
+      //     return item1.title==req.body.item.title;
+      //   });
+      //   console.log(id[0].id);
+      res.send(found_item.item); 
     }
     else if (!err){
         const nitem=new Basket({title:req.body.item.title,rating:req.body.item.rating,price:req.body.item.price,
@@ -131,8 +131,8 @@ app.get('/get_cart',function(req,res)
         var title=it.title;
         var rating=it.rating;
         var price=it.price;
-        var obj_id=it._id;
-        const obj={img,title,rating,price,obj_id};
+        var _id=it._id;
+        const obj={img,title,rating,price,_id};
         basket.push(obj);
       });
       //console.log(basket);
@@ -142,7 +142,7 @@ app.get('/get_cart',function(req,res)
     }
     else res.send('empty');
   })
-})
+});
 
 app.get('/isAuthenticated',function(req,res)
 {
@@ -166,6 +166,7 @@ app.get('/logout',function(req,res)
 
 app.post('/delete_cart_item',function(req,res)
 {
+  console.log(req.body.idx);
   user_basket.findOne({email:req.body.user},function(err,found_item)
   {
   //  // console.log(found_item.item.length());
@@ -176,9 +177,10 @@ app.post('/delete_cart_item',function(req,res)
     if(item1._id==req.body.idx)
     {
       //console.log(index);
+      console.log(index);
       found_item.item.splice(index,1);
       found_item.save();
-      res.send(found_item.item);
+    //  res.send(found_item.item); deleting seperately in the frontend, since waha pe we have basket ka index.
     }
 })
   });
