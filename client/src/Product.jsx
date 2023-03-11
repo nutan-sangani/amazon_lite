@@ -18,7 +18,7 @@ function Product(props) {
       },
       pay:state.user
     });
-    console.log(state);
+    //console.log(state);
   }
   return (
     <div className='product'>

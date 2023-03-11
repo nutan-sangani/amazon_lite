@@ -20,24 +20,23 @@ function Checkout() {
       return price;
   }
 
-  function remove_item(idx,title)
+  function remove_item(idx,title1,index1)
   {
     dispatch( 
       {
         type:"REMOVE_FROM_CART",
         id:idx,
         pay:1,
-        title:title
+        title:title1,
+        index:index1
       }
     );
   }
-
-
   return (
     <div className='checkout'>
       <div className='left_part'>
         <h1 className='heading' >Shopping Cart</h1>
-        {state.basket.map((item) =>
+        {state.basket.map((item,index) =>
         {
           return <Cart_item 
           img={item.img}
@@ -45,8 +44,8 @@ function Checkout() {
           rating={item.rating}
           price={item.price}
           remove_item={remove_item}
-          // index={index}
-          id={item.obj_id}
+          index={index}
+          id={item._id}
            /> 
         })}
         
