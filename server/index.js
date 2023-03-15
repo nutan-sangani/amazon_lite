@@ -5,6 +5,8 @@ const mongoose=require('mongoose');
 const { Schema } = require('mongoose');
 const { model } = require('mongoose');
 // const cors=require('cors');
+const stripe=require('stripe')('sk_test_51MXUrNSCkti21TecqkCskLJUODGEVC8NOb7LhusQjLJp1vpCK9Mli7RQ7MdIwwDzYuQxGOZmXlvJ772xNVx2JAJF00GlIrYRIQ');
+
 
 //Import the main Passport and Express-Session library
 const passport = require('passport');
@@ -119,6 +121,7 @@ app.post('/add_to_basket',function(req,res){ //isme error tha ki add krte waqt h
 
 app.get('/get_cart',function(req,res)
 {
+  //console.log(req.user);
   user_basket.findOne({email:req.user.username},function(err,found_item)
   {
     if(found_item)
@@ -208,6 +211,30 @@ app.post('/register',function(req,res)
     });
     
 });
+
+app.post('/payment-intent',async function(req,res)
+{
+  const {items}=(req.body);
+  console.log(items);
+  const paymentIntent=await stripe.paymentIntents.create({
+    amount:200,
+    currency:'usd',
+    description: 'Software development services',
+    shipping: {
+      name: 'Jenny Rosen',
+      address: {
+        line1: '510 Townsend St',
+        postal_code: '98140',
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'US',
+      },}
+  });
+  res.send(
+    {
+      clientSecret:paymentIntent.client_secret
+    });
+})
 
 app.listen(5000,function(err)
 {

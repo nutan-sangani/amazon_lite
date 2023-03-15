@@ -46,7 +46,7 @@ function Checkout() {
           remove_item={remove_item}
           index={index}
           id={item._id}
-           /> 
+          />
         })}
         
       </div>
