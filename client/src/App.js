@@ -13,21 +13,23 @@ import Login from './Login.jsx';
 import Payments from './Payments.js';
 import {loadStripe } from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
+import Sidebar from './Sidebar.jsx';
 
 const promise=loadStripe("pk_test_51MXUrNSCkti21Tecp0DVPRGM2yYRbJU49LxogZw0CMmRqrASPazitsGaMlNZY1DJdEAtqoM4gOubNprBK67hvt7e00zOCTnmhj");
 
 function App() {
   return (
+   
     <div>
-    <Router>
+  <Router>
      <Routes>
       <Route path='/checkout' element={
         <div>
           <Header/>
           <Checkout/>
+          <Sidebar/>
         </div>
       }/>
-      
       <Route path='/login' 
       element={<Login/>}
       />
@@ -40,16 +42,20 @@ function App() {
         </Elements> 
         </div>
       } />
-
       <Route path='/' element={ 
       <div>
+      <Sidebar>
       <Header/>
       <Home />
+      </Sidebar>
       </div>
       }/>
+     
      </Routes>
-    </Router>
+    {/* </Sidebar> */}
+  </Router>
     </div>
+    
   );
 }
 //see the latest version of react-router-dom
