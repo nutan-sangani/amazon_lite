@@ -109,8 +109,7 @@ const handleSubmit= async (e)=>
             </div>
             <div className='right_part1'>
                 <form className='payment_form' onSubmit={handleSubmit}>
-                <CardElement style='width:100%'
-              
+                <CardElement style='width:80%'
                 />
                 <h4> Order Total : 
                 <CurrencyFormat value={countValue()}  
