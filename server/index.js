@@ -218,16 +218,16 @@ app.post('/payment-intent',async function(req,res)
   console.log(items);
   const paymentIntent=await stripe.paymentIntents.create({
     amount:200,
-    currency:'usd',
+    currency:'inr',
     description: 'Software development services',
     shipping: {
-      name: 'Jenny Rosen',
+      name: 'nutan sangani',
       address: {
-        line1: '510 Townsend St',
-        postal_code: '98140',
-        city: 'San Francisco',
-        state: 'CA',
-        country: 'US',
+        line1: 'A/102 parmatma nagar building',
+        postal_code: '400106',
+        city: 'Mumbai',
+        state: 'Maharashtra',
+        country: 'India',
       },}
   });
   res.send(

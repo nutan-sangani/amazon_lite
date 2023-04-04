@@ -11,6 +11,16 @@
     right: 0;
 }
 
+.logo
+{
+    padding-left: 10px;
+}
+.bars
+{
+    padding-left: 12px;
+    overflow: visible;
+}
+
 .picture{
     height: 40px;
     display: flex;

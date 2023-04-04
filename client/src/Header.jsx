@@ -3,12 +3,11 @@ import img from './amazon.png';
 import './Header.css';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
-import {
-    Link
-  } from "react-router-dom";
+import {Link} from "react-router-dom";
 import { useStateValue } from './StateProvider';
 import axios from 'axios';
-
+import {FaBars} from 'react-icons/fa';
+import { collapseClasses, Hidden } from '@mui/material';
 function Header() {
     const signin="Hello, sign in";
     const account="Account & Lists";
@@ -39,8 +38,18 @@ function Header() {
               type:'GET_CART'
             } );
     },[]);
+
+    function handleClick()
+    {
+        dispatch(
+            {
+                type:'sidebar_toggle'
+            }
+        );
+    }
   return (
     <div className='header'>
+    <FaBars color='white' className='bars' size={'22px'} onClick={handleClick}></FaBars>
         <div className='logo'>
         <Link to='/'>
         <img src={img} className='picture' alt='amazon logo'/>

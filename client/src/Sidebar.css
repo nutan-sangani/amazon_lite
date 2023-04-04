@@ -1,0 +1,25 @@
+.sidebar
+{
+    /* display: flex; */
+    z-index: 100;
+}
+.item_link
+{
+    text-decoration: none;
+    
+}
+.item_name
+{
+    color: white;
+    display: inline-block;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    margin: auto auto;
+    margin-left: 9px;
+}
+.item_icon
+{
+    color: white;
+    margin-left: 15px;
+    display: inline-block;
+}

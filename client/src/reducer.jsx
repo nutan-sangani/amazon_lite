@@ -4,7 +4,8 @@ import { Navigate } from 'react-router-dom';
 
 export const initialState = {
     basket: [],
-    user:''
+    user:'',
+    sidebar:false,
 };
 const reducer =  (state,action) =>{
     switch(action.type)
@@ -63,7 +64,6 @@ const reducer =  (state,action) =>{
 
             }
         case "REMOVE_USER":
-            
             return {
                 ...state,
                 user:'',
@@ -90,6 +90,13 @@ const reducer =  (state,action) =>{
             };
             //idk how?? but ye wala error resolve hogya, ig since pehle wala return nhi kr rha tha isiliye ye error aa rha tha.
             //thus reducer me humesha return karwa.
+        case 'sidebar_toggle':
+            console.log("inside toggle");
+            return{
+                ...state,
+                sidebar:!(state.sidebar)
+            }
+            
         default:
             console.log('default');
     }

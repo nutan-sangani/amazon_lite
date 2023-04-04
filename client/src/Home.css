@@ -4,16 +4,18 @@
     z-index: -1;
     display: flex;
     display: grid;
-    position: relative;
-    top:67px;
+    /* position: relative; */
+    /* top:67px; */
+    position: absolute;
+    top: 67px;
     object-fit: contain;
     mask-image: linear-gradient(to bottom, rgb(0, 0, 1), rgba(0, 0, 0, 0));
 }
 
-
 .product_content
 {
     display: grid;
+    z-index: -1;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row-gap: 9px;
     grid-column-gap: 10px;

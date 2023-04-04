@@ -19,7 +19,6 @@ const promise=loadStripe("pk_test_51MXUrNSCkti21Tecp0DVPRGM2yYRbJU49LxogZw0CMmRq
 
 function App() {
   return (
-   
     <div>
   <Router>
      <Routes>
@@ -27,7 +26,6 @@ function App() {
         <div>
           <Header/>
           <Checkout/>
-          <Sidebar/>
         </div>
       }/>
       <Route path='/login' 
@@ -50,12 +48,9 @@ function App() {
       </Sidebar>
       </div>
       }/>
-     
      </Routes>
-    {/* </Sidebar> */}
   </Router>
     </div>
-    
   );
 }
 //see the latest version of react-router-dom
